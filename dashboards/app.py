@@ -9,7 +9,7 @@ from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 
 # Set Streamlit layout
-st.set_page_config(page_title="\ud83d\udcca Stock Market Dashboard", layout="wide")
+st.set_page_config(page_title="Stock Market Dashboard", layout="wide")
 
 # --- Load Data from DuckDB ---
 try:
