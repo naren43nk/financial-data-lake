@@ -20,3 +20,4 @@ venv/
 
 # DuckDB files (if generated)
 *.duckdb
+*.db
