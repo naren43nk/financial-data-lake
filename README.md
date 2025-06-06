@@ -1,65 +1,46 @@
-# 📊 Financial Market Data Lake
+# 📈 Financial Market Dashboard
 
-A powerful dashboard built using Streamlit to visualize and forecast stock data with:
-- Candlestick + EMA/SMA analysis
-- RSI and Bollinger Bands
-- Trading volume and LSTM forecast
-- CSV export
+An interactive **stock analysis dashboard** built using **Streamlit**, **Plotly**, **yFinance**, and **DuckDB**.  
+It enables users to explore historical stock trends, compare tickers, run forecasting, and simulate trading strategies in a clean, interactive UI.
+
 ---
 
 ## 🚀 Features
 
-- 🔄 Daily ETL pipeline using `yfinance`
-- 🗃️ Local data lake powered by DuckDB
-- 📅 Optional automated refresh using `schedule` or Airflow
-- 📈 Interactive dashboards via Streamlit (optional)
-- ✅ Clean structure for production-ready data engineering
+- 📊 **Multi-Ticker Comparison** – Visualize multiple stock close prices together
+- 🔁 **SMA/EMA Toggle** – Choose between **Simple** or **Exponential Moving Averages**
+- 🔍 **Technical Indicators** – Candlestick chart, RSI, and Moving Average overlays
+- 🔮 **Forecasting** – Predict next 5-day **AAPL closing prices** using lightweight **Linear Regression**
+- 🧪 **Backtesting** – Simulate and compare **Buy & Hold** vs **MA Crossover Strategy**
+- 📥 **CSV Download** – Export filtered results for offline use
 
 ---
 
-## 🧰 Tech Stack
+## 🧠 Tech Stack
 
-- **Python**
-- **yFinance** – for financial data extraction
-- **DuckDB** – for local OLAP-style storage
-- **Pandas** – for data transformation
-- **Airflow** *(optional)* – for orchestration
-- **Streamlit** *(optional)* – for dashboarding
+- **Frontend:** [Streamlit](https://streamlit.io/)
+- **Data Source:** [yFinance](https://pypi.org/project/yfinance/)
+- **Database Engine:** [DuckDB](https://duckdb.org/)
+- **ML Forecasting:** `LinearRegression` from `scikit-learn`
+- **Plotting:** [Plotly](https://plotly.com/)
 
 ---
 
-## 📁 Folder Structure
+## 📁 Project Structure
 
 financial-data-lake/
 │
-├── data/ # Raw and processed data
-├── etl/ # ETL scripts
-│ ├── fetch_data.py
-│ └── utils.py
-├── dags/ # Airflow DAGs
-├── notebooks/ # Jupyter notebooks for EDA
-├── dashboards/ # Streamlit dashboard
-├── requirements.txt # Python dependencies
-├── .gitignore
-└── README.md
+├── dashboards/
+│ └── app.py # 🚀 Streamlit dashboard (entry point)
+├── etl/
+│ └── fetch_data.py # 🔄 Script to fetch and store stock data
+├── data/ # 📦 Contains market_data.duckdb (auto-created)
+├── requirements.txt # 📌 Python dependencies
+├── setup.sh # ⚙️ Optional startup script for Streamlit Cloud
+└── README.md # 📘 Project documentation
 
-
----
-
-## 🏁 How to Run
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Run ETL manually
-python etl/fetch_data.py
-
-# Optional: Run daily with schedule or Airflow
-
-
-
-👨‍💻 Author
-Narendran Mohan
-LinkedIn | GitHub
-
+💹 Default Tickers Included
+Ticker	Company	Sector
+AAPL	Apple Inc.	Technology
+MSFT	Microsoft Corp	Technology
+GOOGL	Alphabet Inc.	Communication Services
